@@ -1,7 +1,7 @@
 id: sysprefs_dock_autohide_enforce
 title: "Enforce Dock Autohide"
 discussion: |
-  The dock _MUST_ be configured to autohide.
+  The dock should be configured to autohide on systems with sensitive data.
 
   This rule forces the dock to automatically hide, which reduces information leakage by not displaying running applications.
 check: |
@@ -12,7 +12,7 @@ fix: |
   This is implemented by a Configuration Profile.
 references:
   cce:
-    - N/A
+    - CCE-85091-7
   cci: 
     - N/A
   800-53r4: 

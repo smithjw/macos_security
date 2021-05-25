@@ -1,7 +1,7 @@
 id: pwpolicy_account_lockout_timeout_enforce_1
 title: "Set Account Lockout Time to 1 Minute"
 discussion: |
-  The macOS _MUST_ be configured to enforce a lockout time period of at least 1 minute when the maximum number of failed logon attempts is reached.
+  The macOS should be configured to enforce a lockout time period of at least 1 minute when the maximum number of failed logon attempts is reached.
 
   This rule protects against malicious users attempting to gain access to the system via brute-force hacking methods. 
 check: |
@@ -12,7 +12,7 @@ fix: |
   This is implemented by a Configuration Profile.
 references:
   cce:
-    - N/A
+    - CCE-85085-9
   cci: 
     - N/A
   800-53r4: 
