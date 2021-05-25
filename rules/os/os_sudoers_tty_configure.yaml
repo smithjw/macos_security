@@ -29,6 +29,10 @@ macOS:
 tags:
   - cnssi-1253
   - stig
+  - 800-179_standalone
+  - 800-179_managed
+  - 800-179_sslf
+  - preliminary
 severity: "high"
 mobileconfig: false
 mobileconfig_info:
