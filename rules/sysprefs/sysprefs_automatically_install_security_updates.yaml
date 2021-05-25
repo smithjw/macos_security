@@ -1,0 +1,37 @@
+id: sysprefs_automatically_install_security_updates
+title: "Enable the automatic installation of system data files and security updates"
+discussion: |
+  Automatic system data files and security updates _MUST_ be enabled.
+
+  Security updates should be applied as soon as possible.
+check: |
+  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c 'CriticalUpdateInstall = 1'
+result:
+  integer: 1
+fix: |
+  This is implemented by a Configuration Profile.
+references:
+  cce:
+    - N/A
+  cci:
+    - N/A
+  800-53r4:
+    - CM-2
+  srg:
+    - N/A
+  disa_stig:
+    - N/A
+  800-171r2:
+    - N/A
+macOS:
+  - "11.0"
+tags:
+  - 800-179_standalone
+  - 800-179_managed
+  - 800-179_sslf
+  - preliminary
+mobileconfig: true
+mobileconfig_info:
+  com.apple.SoftwareUpdate:
+    CriticalUpdateInstall: true
+    ConfigDataInstall: true

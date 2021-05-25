@@ -1,0 +1,36 @@
+id: sysprefs_automatically_download_updates_in_background
+title: "Enable the automatically downloading updates in the background"
+discussion: |
+  Automatic downloading of updates must be enabled.
+
+  Updates can be installed more quickly if they are already downloaded.
+check: |
+  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c 'AutomaticDownload = 1'
+result:
+  integer: 1
+fix: |
+  This is implemented by a Configuration Profile.
+references:
+  cce:
+    - N/A
+  cci:
+    - N/A
+  800-53r4:
+    - CM-2
+  srg:
+    - N/A
+  disa_stig:
+    - N/A
+  800-171r2:
+    - N/A
+macOS:
+  - "11.0"
+tags:
+  - 800-179_standalone
+  - 800-179_managed
+  - 800-179_sslf
+  - preliminary
+mobileconfig: true
+mobileconfig_info:
+  com.apple.SoftwareUpdate:
+    AutomaticDownload: true

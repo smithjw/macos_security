@@ -1,0 +1,36 @@
+id: sysprefs_automatically_check_for_updates
+title: "Enable automatic update checking"
+discussion: |
+  Automatic update checking must be enabled.
+
+  Updates can be performed in a more timely manner if users are alerted to their existence.
+check: |
+  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c 'AutomaticCheckEnabled = 1'
+result:
+  integer: 1
+fix: |
+  This is implemented by a Configuration Profile.
+references:
+  cce:
+    - N/A
+  cci:
+    - N/A
+  800-53r4:
+    - CM-2
+  srg:
+    - N/A
+  disa_stig:
+    - N/A
+  800-171r2:
+    - N/A
+macOS:
+  - "11.0"
+tags:
+  - 800-179_standalone
+  - 800-179_managed
+  - 800-179_sslf
+  - preliminary
+mobileconfig: true
+mobileconfig_info:
+  com.apple.SoftwareUpdate:
+    AutomaticCheckEnabled: true

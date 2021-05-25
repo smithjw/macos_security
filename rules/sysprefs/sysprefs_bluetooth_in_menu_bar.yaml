@@ -1,0 +1,37 @@
+id: sysprefs_bluetooth_in_menu_bar
+title: "Enable Bluetooth status in the menu bar"
+discussion: |
+  Bluetooth status in the menu bar should be enabled.
+
+  The status should be displayed in the menu bar to keep the user informed about open network interfaces. 
+check: |
+  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c 'Bluetooth = 18'
+result:
+  boolean: 1
+fix: |
+  This is implemented by a Configuration Profile.
+references:
+  cce:
+    - CCE-85076-8
+  cci: 
+    - N/A
+  800-53r4: 
+    - CM-2
+    - AC-18
+  srg: 
+    - N/A
+  disa_stig: 
+    -
+  800-171r2:
+    - N/A
+macOS:
+  - "11.0"
+tags:
+  - 800-179_standalone
+  - 800-179_managed
+  - 800-179_sslf    
+  - preliminary
+mobileconfig: true
+mobileconfig_info:
+  com.apple.controlcenter:
+    Bluetooth: 18

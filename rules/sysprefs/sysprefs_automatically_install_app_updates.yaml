@@ -1,0 +1,34 @@
+id: sysprefs_automatically_install_app_updates
+title: "Enable the automatic installation of App Store app updates"
+discussion: |
+  Automatic App Store app  updates must be enabled. 
+
+  Updates should be tested and vetted before being deployed. In the absense of such a process, install updates as soon as possible.
+check: |
+  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c 'AutomaticallyInstallAppUpdates = 1'
+result:
+  integer: 1
+fix: |
+  This is implemented by a Configuration Profile.
+references:
+  cce:
+    - CCE-85097-4
+  cci:
+    - N/A
+  800-53r4:
+    - CM-2
+  srg:
+    - N/A
+  disa_stig:
+    - N/A
+  800-171r2:
+    - N/A
+macOS:
+  - "11.0"
+tags:
+  - 800-179_standalone
+  - preliminary
+mobileconfig: true
+mobileconfig_info:
+  com.apple.SoftwareUpdate:
+    AutomaticallyInstallAppUpdates: true
