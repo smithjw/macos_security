@@ -1,7 +1,7 @@
 id: os_sudoers_timeout_configure
 title: "Restricts Sudo Authentication Session to a Single Command"
 discussion: |
-  The file /etc/sudoers _MUST_ be configured to include timestamp_timeout.
+  The file /etc/sudoers should be configured to include timestamp_timeout.
 
   Authentication for sudo commands is required on a per-command basis.
 check: |
@@ -15,11 +15,12 @@ fix: |
   ----
 references:
   cce:
-    - N/A
+    - CCE-85015-6
   cci:
     - N/A
   800-53r4:
-    - N/A
+    - CM-2
+    - IA-2
   srg:
     - N/A
   disa_stig:

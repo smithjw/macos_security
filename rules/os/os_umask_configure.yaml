@@ -13,11 +13,12 @@ fix: |
   ----
 references:
   cce:
-    - n/a
+    - CCE-85004-0
   cci: 
     - n/a
   800-53r4: 
-    - n/a
+    - CM-2
+    - AC-3
   srg: 
     - n/a
   disa_stig: 

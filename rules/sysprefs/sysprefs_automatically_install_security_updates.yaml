@@ -1,7 +1,7 @@
 id: sysprefs_automatically_install_security_updates
 title: "Enable the automatic installation of system data files and security updates"
 discussion: |
-  Automatic system data files and security updates _MUST_ be enabled.
+  Automatic system data files and security updates must be enabled.
 
   Security updates should be applied as soon as possible.
 check: |
@@ -12,7 +12,7 @@ fix: |
   This is implemented by a Configuration Profile.
 references:
   cce:
-    - N/A
+    - CCE-85131-1
   cci:
     - N/A
   800-53r4:

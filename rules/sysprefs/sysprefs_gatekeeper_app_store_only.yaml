@@ -15,11 +15,12 @@ fix: |
   ----
 references:
   cce:
-    - n/a
+    - CCE-85077-6
   cci: 
     - n/a
   800-53r4: 
-    - n/a
+    - CM-2
+    - CM-11
   srg: 
     - n/a
   disa_stig: 

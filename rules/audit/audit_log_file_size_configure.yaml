@@ -13,7 +13,7 @@ fix: |
   ----
 references:
   cce:
-    - n/a
+    - CCE-85007-3
   cci:
     - n/a
   800-53r4:

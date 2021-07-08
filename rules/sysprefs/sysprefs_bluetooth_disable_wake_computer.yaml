@@ -1,7 +1,7 @@
 id: sysprefs_bluetooth_disable_wake_computer
 title: "Disable Bluetooth Wake Computer"
 discussion: |
-  Bluetooth devices _MUST_ be prevented from waking the computer. 
+  Bluetooth devices must be prevented from waking the computer. 
 
   Prevents malicious users from controlling the power state of the system. This can be mitigated by disabling the ability to wake a device using Bluetooth.
 
@@ -24,7 +24,7 @@ fix: |
   ----
 references:
   cce:
-    - n/a
+    - CCE-85071-9
   cci: 
     - N/A
   800-53r4: 
@@ -33,7 +33,7 @@ references:
   srg: 
     - n/a
   disa_stig: 
-    -
+    - n/a
   800-171r2:
     - n/a
 macOS:
@@ -43,4 +43,3 @@ tags:
   - preliminary
 mobileconfig: false
 mobileconfig_info:
-

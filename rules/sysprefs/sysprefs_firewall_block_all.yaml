@@ -1,7 +1,7 @@
 id: sysprefs_firewall_block_all
 title: "Enable macOS Application Firewall block all"
 discussion: |
-  The macOS Application Firewall is the built-in firewall that comes with macOS, and it _MUST_ be enabled and configured to block all non-essential incoming connections.
+  The macOS Application Firewall is the built-in firewall that comes with macOS, and it must be enabled and configured to block all non-essential incoming connections.
 
   When the macOS Application Firewall is enabled, the flow of information within the information system and between interconnected systems will be controlled by approved authorizations. For systems with higher security requirements, all non-essential incoming connections should be blocked.
 check: |
@@ -15,7 +15,7 @@ fix: |
   ----
 references:
   cce:
-    - n/a
+    - CCE-85092-5
   cci: 
     - n/a
   800-53r4: 

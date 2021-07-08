@@ -1,7 +1,7 @@
 id: sysprefs_firewall_set_logging_detail
 title: "Configure Firewall Logging Level"
 discussion: |
-  The firewall logging level _MUST_ be configured to detail.
+  The firewall logging level must be configured to detail.
 
   Increasing the logging level offers additional insight into the system's network traffic.
 check: |
@@ -15,9 +15,12 @@ fix: |
   ----
 references:
   cce:
-    - N/A
+    - CCE-85020-6
   800-53r4:
-    - N/A
+    - CM-2
+    - AC-4
+    - AU-4
+    - CM-7
   srg:
     - N/A
   cci:
