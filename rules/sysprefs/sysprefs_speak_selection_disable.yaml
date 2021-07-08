@@ -1,0 +1,45 @@
+id: sysprefs_speak_selection_disable
+title: "Disable Speak Selection"
+discussion: |
+  The speaking of highlighted text when the designated key is pressed should be disabled if it is not needed. 
+
+  Disabling speak selection ensures the system does not audibly expose potentially sensitive data.
+  
+  [NOTE] 
+  ====
+  The check and fix are for the currently logged in user. To get the currently logged in user, run the following.
+  [source,bash]
+  ----
+  CURRENT_USER=$( scutil <<< "show State:/Users/ConsoleUser" | awk '/Name :/ && ! /loginwindow/ { print $3 }' )
+  ----
+  ====
+check: |
+  /usr/bin/sudo -u "$CURRENT_USER" /usr/bin/defaults read com.apple.speech.synthesis.general.prefs.plist SpokenUIUseSpeakingHotKeyFlag
+result:
+  boolean: 0
+fix: |
+  [source,bash]
+  ----
+  /usr/bin/sudo -u "$CURRENT_USER" /usr/bin/defaults write com.apple.speech.synthesis.general.prefs.plist SpokenUIUseSpeakingHotKeyFlag -bool false
+  ----
+references:
+  cce:
+    - CCE-85123-8
+  cci: 
+    - N/A
+  800-53r4: 
+    - CM-2
+    - CM-7
+  srg: 
+    - N/A
+  disa_stig: 
+    - N/A
+  800-171r2:
+    - N/A
+macOS:
+  - "11.0"
+tags:
+  - 800-179_sslf    
+  - preliminary
+mobileconfig: false
+mobileconfig_info:

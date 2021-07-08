@@ -1,0 +1,41 @@
+id: os_sshd_x11_forwarding_disable
+title: "Disable X11 Forwarding for SSH"
+discussion: |
+  X11 forwarding should be disabled to prevent remote x windows sessions over SSH. X11 forwarding is not necessary for SSH operation and should be disabled if it is not needed.
+
+  NOTE: /etc/ssh/sshd_config will be automatically modified to its original state following any update or major upgrade to the operating system.
+check: |
+  /usr/bin/grep -Ec '^#?X11Forwarding no' /etc/ssh/sshd_config 
+result:
+  integer: 1
+fix: |
+  The following commands must be run to disable X11 forwarding for SSHD: 
+  [source,bash]
+  ----
+  /usr/bin/grep -Eq '^#?X11Forwarding' /etc/ssh/sshd_config && /usr/bin/sed -E -i.bak  's/^#?X11Forwarding.*/X11Forwarding no/' /etc/ssh/sshd_config || /bin/echo 'X11Forwarding no' >> /etc/ssh/sshd_config; /bin/launchctl kickstart -k system/com.openssh.sshd
+  ----
+references:
+  cce:
+    - CCE-85126-1
+  cci:
+    - n/a
+  800-53r4:
+    - CM-2
+    - AC-4
+    - IA-2
+  srg: 
+    - n/a
+  disa_stig:
+    - n/a
+  800-171r2:
+    - n/a
+macOS:
+  - "11.0"
+tags:
+  - 800-179_standalone
+  - 800-179_managed
+  - 800-179_sslf
+  - preliminary
+severity: "medium"
+mobileconfig: false
+mobileconfig_info:

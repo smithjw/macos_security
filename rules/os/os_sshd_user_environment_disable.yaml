@@ -1,0 +1,40 @@
+id: os_sshd_user_environment_disable
+title: "Disable User Environment for SSH"
+discussion: |
+  Prevent environment variables located in ~/.ssh/environment from being loaded when a user is logged in through SSH. Environment processing can allow users to circumvent access restrictions, so it should be disabled.
+
+  NOTE: /etc/ssh/sshd_config will be automatically modified to its original state following any update or major upgrade to the operating system.
+check: |
+  /usr/bin/grep -Ec '^#?PermitUserEnvironment no' /etc/ssh/sshd_config 
+result:
+  integer: 1
+fix: |
+  The following commands must be run to disable user environment variables for SSHD: 
+  [source,bash]
+  ----
+  /usr/bin/grep -Eq '^#?PermitUserEnvironment' /etc/ssh/sshd_config && /usr/bin/sed -E -i.bak  's/^#?PermitUserEnvironment.*/PermitUserEnvironment no/' /etc/ssh/sshd_config || /bin/echo 'PermitUserEnvironment no' >> /etc/ssh/sshd_config; /bin/launchctl kickstart -k system/com.openssh.sshd
+  ----
+references:
+  cce:
+    - CCE-85128-7
+  cci:
+    - n/a
+  800-53r4:
+    - CM-2
+    - IA-2
+  srg: 
+    - n/a
+  disa_stig:
+    - n/a
+  800-171r2:
+    - n/a
+macOS:
+  - "11.0"
+tags:
+  - 800-179_standalone
+  - 800-179_managed
+  - 800-179_sslf
+  - preliminary
+severity: "medium"
+mobileconfig: false
+mobileconfig_info:

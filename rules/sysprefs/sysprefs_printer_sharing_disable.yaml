@@ -1,0 +1,38 @@
+id: sysprefs_printer_sharing_disable
+title: "Disable Printer Sharing"
+discussion: |
+  The printer sharing service should be disabled.
+
+  Network services that are not in use should be disabled to reduce the number of attack vectors into a system.
+check: |
+  /usr/sbin/cupsctl | /usr/bin/grep -Ec "_share_printers=0"
+result:
+  integer: 1
+fix: |
+  [source,bash]
+  ----
+  /usr/sbin/cupsctl --no-share-printers
+  ----
+references:
+  cce:
+    - CCE-85113-9
+  cci:
+    - N/A
+  800-53r4:
+    - CM-2
+    - CM-7
+    - IA-11
+  srg:
+    - N/A
+  disa_stig:
+    - N/A
+macOS:
+  - "11.0"
+tags:
+  - 800-179_standalone
+  - 800-179_managed
+  - 800-179_sslf
+  - preliminary
+severity: "medium"
+mobileconfig: false
+mobileconfig_info:
