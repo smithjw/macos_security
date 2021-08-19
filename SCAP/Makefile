@@ -3,8 +3,8 @@ TIDY		= /usr/local/bin/tidy
 VAL		= java -Djava.protocol.handler.pkgs=sun.net.www.protocol -jar ~/Projects/scapval/scapval-1.3.5.jar
 
 DIR		= ../build/All_rules
-VERSION		= $(shell ./version.sh)
-OS		= $(shell ./os.sh)
+VERSION	= $(shell ./version.sh)
+OS = $(shell ./os.sh)
 
 all: inputs tidy XCCDF datastream report beautify
 
