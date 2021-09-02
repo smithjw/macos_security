@@ -7,7 +7,7 @@ discussion: |
   
   When enabled, the smartcard can be used for login, authorization, and screen saver unlocking.
 check: |
-  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c 'allowSmartCard = 1'
+  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c 'allowSmartCard = 1' | /usr/bin/awk '{ if ($1 >= 1) {print "1"} else {print "0"}}'
 result:
   integer: 1
 fix: |

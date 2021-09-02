@@ -5,7 +5,7 @@ discussion: |
 
   The information system _MUST_ be configured to provide only essential capabilities. Disabling the submission of Siri and Dictation information will mitigate the risk of unwanted data being sent to Apple. 
 check: |
-  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c '"Siri Data Sharing Opt-In Status" = 2;'
+  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c '"Siri Data Sharing Opt-In Status" = 2;' | /usr/bin/awk '{ if ($1 >= 1) {print "1"} else {print "0"}}'
 result:
   integer: 1
 fix: |

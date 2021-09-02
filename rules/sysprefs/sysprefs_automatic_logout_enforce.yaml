@@ -10,7 +10,7 @@ discussion: |
   The 24-hour automatic logout may cause disruptions to an organization’s workflow and/or loss of data. Information System Security Officers (ISSOs) are advised to first fully weigh the potential risks posed to their organization before opting to disable the 24-hour automatic logout setting.
   ====
 check: |
-  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c '"com.apple.autologout.AutoLogOutDelay" = 86400'
+  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c '"com.apple.autologout.AutoLogOutDelay" = 86400' | /usr/bin/awk '{ if ($1 >= 1) {print "1"} else {print "0"}}'
 result:
   integer: 1
 fix: |

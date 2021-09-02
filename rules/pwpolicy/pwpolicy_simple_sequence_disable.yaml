@@ -7,7 +7,7 @@ discussion: |
 
   NOTE: The guidance for password based authentication in NIST 800-53 (Rev 5) and NIST 800-63B state that complexity rules should be organizationally defined. The values defined are based off of common complexity values. But your organization may define its own password complexity rules.
 check: | 
-  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c 'allowSimple = 0' 
+  /usr/bin/profiles -P -o stdout | /usr/bin/grep -c 'allowSimple = 0' | /usr/bin/awk '{ if ($1 >= 1) {print "1"} else {print "0"}}'
 result:
   integer: 1
 fix: |
